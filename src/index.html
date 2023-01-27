@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+    <title>Anu watashi...</title>
+</head>
+
+<body class="pt-16 bg-blue-100">
+    <div class="px-6 lg:px-32">
+        <h1 class="text-3xl font-bold underline pb-6">
+            Hello world!
+        </h1>
+
+        <div class="px-8 pb-8">
+            <ol class="list-decimal	">
+                <li>Login Siakad</li>
+                <li>
+                    Buka link berikut
+                    <br>
+                    <code>https://siakad.uns.ac.id/nilai/nilai-khs?tahun=2022&semester=A</code>
+                    <p>🚩 Ganti tahun "2022" dan semester "A" sesuai dengan KHS yang ingin dilihat</p>
+                </li>
+                <li>Akan muncul JSON (yang sulit dibaca itu), copy semua, jangan ada yang kelewat</li>
+                <li>Paste di input field di bawah</li>
+                <li>Tekan tombol "Generate"</li>
+
+            </ol>
+        </div>
+
+        <label for="json" class="block mb-2 text-sm font-medium text-gray-900">Masukkan JSON di bawah</label>
+        <textarea id="json" rows="4"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 mb-8"
+            placeholder="Pastikan semua karakter telah dicopas tanpa ada yang tertinggal 1 pun"></textarea>
+
+        <button onclick="parseJson()"
+            class="text-white text-sm font-medium px-10 py-2 bg-blue-500 hover:bg-blue-700 rounded-lg">
+            Generate
+        </button>
+
+        <div id="cards" class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"></div>
+    </div>
+
+    <div class="px-6 lg:px-32 pt-16 pb-16 text-center">
+        <hr>
+        <p>@2023 | <a href="https://twitter.com/riyhs_">Mrak Suckerbek</a></p>
+    </div>
+</body>
+
+<script>
+    function parseJson() {
+        var x = document.getElementById("json").value
+        const json = JSON.parse(x)
+
+        json.forEach(data => {
+            const card =
+                `<div class="p-6 mt-4 border border-gray-300 rounded-lg bg-gray-50 text-gray-900 hover:border-gray-900">
+                    <p class="text-xl pb-4 font-bold">${data.nama_mata_kuliah}</p>
+                    <table class="w-full">
+                        <tr>
+                            <td class="text-right w-1/2">SKS</td>
+                            <td class="font-bold pl-6">${data.sks}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right w-1/2">Kelas</td>
+                            <td class="font-bold pl-6">${data.kelas}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right w-1/2">Semester</td>
+                            <td class="font-bold pl-6">${data.semester}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right w-1/2">Nilai Kuis</td>
+                            <td class="font-bold pl-6">${data.nilai_kuis}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right w-1/2">Nilai Tugas</td>
+                            <td class="font-bold pl-6">${data.nilai_tugas}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right w-1/2">Nilai Mid</td>
+                            <td class="font-bold pl-6">${data.nilai_mid}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right w-1/2">Nilai UAS</td>
+                            <td class="font-bold pl-6">${data.nilai_uas}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right w-1/2">Nilai Praktik</td>
+                            <td class="font-bold pl-6">${data.nilai_praktik}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right w-1/2">Nilai Akhir</td>
+                            <td class="font-bold pl-6">${data.nilai_akhir}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right w-1/2">Nilai Huruf</td>
+                            <td class="font-bold pl-6">${data.nilai_huruf}</td>
+                        </tr>
+                    </table>
+                </div>`
+
+            document.getElementById("cards").innerHTML += card;
+        });
+    }
+</script>
+
+</html>
