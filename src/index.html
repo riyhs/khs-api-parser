@@ -19,13 +19,21 @@
 
         <div class="px-8 pb-8">
             <ol class="list-decimal	">
-                <li>Login Siakad</li>
                 <li>
-                    Buka link berikut
-                    <br>
-                    <code>https://siakad.uns.ac.id/nilai/nilai-khs?tahun=2022&semester=A</code>
-                    <p>🚩 Ganti tahun "2022" dan semester "A" sesuai dengan KHS yang ingin dilihat, "A" Ganjil | "B"
-                        Genap</p>
+                    <p>Login <a style="color: rgb(47, 47, 244);" target="_blank"
+                            href="https://siakad.uns.ac.id/saml/login">Siakad</a></p>
+                </li>
+                <li>
+                    <p>Buka link berikut</p>
+                    <p>Ganti tahun "2022" dan semester "A" sesuai dengan KHS yang ingin dilihat, "A" Ganjil | "B" Genap
+                    </p>
+                    <br class="text-b">
+                    <code style="color: rgb(47, 47, 244);">
+                        <a target="_blank" href="https://siakad.uns.ac.id/nilai/nilai-khs?tahun=2022&semester=A">
+                                https://siakad.uns.ac.id/nilai/nilai-khs?tahun=2022&semester=A
+                        </a>
+                    </code>
+                    <br> <br>
                 </li>
                 <li>Akan muncul JSON (yang sulit dibaca itu), copy semua, jangan ada yang kelewat</li>
                 <li>Paste di input field di bawah</li>
@@ -73,6 +81,10 @@
                             <td class="font-bold pl-6">${data.kelas}</td>
                         </tr>
                         <tr>
+                            <td class="text-right w-1/2">Tahun</td>
+                            <td class="font-bold pl-6">${data.tahun}</td>
+                        </tr>
+                        <tr>
                             <td class="text-right w-1/2">Semester</td>
                             <td class="font-bold pl-6">${data.semester}</td>
                         </tr>
@@ -103,6 +115,23 @@
                         <tr>
                             <td class="text-right w-1/2">Nilai Huruf</td>
                             <td class="font-bold pl-6">${data.nilai_huruf}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="margin-top:25px!important;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-right w-1/2">Tunda</td>
+                            <td class="font-bold pl-6">${data.is_tunda}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right w-1/2">Tgl Yudisium</td>
+                            <td class="font-bold pl-6">${data.is_tgl_yudisium}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right w-1/2">Validasi</td>
+                            <td class="font-bold pl-6">${data.validasi}</td>
                         </tr>
                     </table>
                 </div>`
